@@ -398,17 +398,17 @@ section.section-show {
   text-transform: uppercase;
   color: #aaaaaa;
   font-family: "Poppins", sans-serif;
-    word-break: break-word;
+  word-break: break-word;
 }
 
 .section-title h2::after {
   content: "";
-  display:inline-block;
-    vertical-align: middle;
-  width: 60px;
+  display:inline-block; 
+  width: 120px;
   height: 1px;
   background: #4ceb95;
-  margin-left: 10px;
+  margin: 4px 10px;
+  vertical-align: middle;
 }
 /*changes on 22 sept*/
 @media (max-width: 768px) {
@@ -416,13 +416,10 @@ section.section-show {
     font-size: 12px;
       line-height: 1.3;
      letter-spacing: 1px;
-     word-break: break-word;
   }
   .section-title h2::after {
-    width: 40px;
-    margin-left: 6px;
-    vertical-align: middle;
-
+    width: 60px;
+    margin-left: 6px;    
   }
 }
 
