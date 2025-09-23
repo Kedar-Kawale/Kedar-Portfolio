@@ -1404,5 +1404,16 @@
 
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>
+    <!-- Footer Section with Copyright -->
+    <footer class="bg-gray-800 text-white py-4 mt-10">
+        <div class="container mx-auto text-center">
+            <p>&copy; <span id="current-year"></span> Kedar Kawale. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <!-- Script to automatically update the year -->
+    <script>
+        document.getElementById("current-year").textContent = new Date().getFullYear();
+    </script>
+    
 </body>
 </html>
