@@ -1,0 +1,79 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\KedarPortfolioDone\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\KedarPortfolioDone\\Personal\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Personal\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\KedarPortfolioDone\\Personal\\assets\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Personal\\assets\\css\\style.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\KedarPortfolioDone\\Personal\\assets\\js\\main.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Personal\\assets\\js\\main.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c64b9c2-e352-428e-a56d-0ace190b99a6}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "main.js",
+              "DocumentMoniker": "D:\\KedarPortfolioDone\\Personal\\assets\\js\\main.js",
+              "RelativeDocumentMoniker": "Personal\\assets\\js\\main.js",
+              "ToolTip": "D:\\KedarPortfolioDone\\Personal\\assets\\js\\main.js",
+              "RelativeToolTip": "Personal\\assets\\js\\main.js",
+              "ViewState": "AgIAANIAAAAAAAAAAAAAAKAAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-09-23T07:34:00.972Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "style.css",
+              "DocumentMoniker": "D:\\KedarPortfolioDone\\Personal\\assets\\css\\style.css",
+              "RelativeDocumentMoniker": "Personal\\assets\\css\\style.css",
+              "ToolTip": "D:\\KedarPortfolioDone\\Personal\\assets\\css\\style.css",
+              "RelativeToolTip": "Personal\\assets\\css\\style.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-09-23T07:33:55.511Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "index.html",
+              "DocumentMoniker": "D:\\KedarPortfolioDone\\Personal\\index.html",
+              "RelativeDocumentMoniker": "Personal\\index.html",
+              "ToolTip": "D:\\KedarPortfolioDone\\Personal\\index.html",
+              "RelativeToolTip": "Personal\\index.html",
+              "ViewState": "AgIAAGoFAAAAAAAAAAAAAIMFAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-09-23T07:33:45.797Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
