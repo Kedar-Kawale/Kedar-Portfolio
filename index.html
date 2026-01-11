@@ -779,7 +779,6 @@
                         <div class="portfolio-links">
                             <!-- CRITICAL: Replace "YOUR_LIVE_DEMO_URL" with the actual link to your hosted app ex-Azure or AWS -->
                             <!--<a href="YOUR_LIVE_DEMO_URL" title="Live Demo" target="_blank"><i class="bx bx-link"></i></a>-->
-
                             <!-- CRITICAL: Replace "YOUR_GITHUB_REPO_URL" with the actual link to your Codepulse GitHub repo -->
                             <a href="https://github.com/Kedar-Kawale/CodePulse" title="GitHub Repository" target="_blank"><i class="bx bxl-github"></i></a>
                         </div>
@@ -1473,6 +1472,186 @@
     <script>
         document.getElementById("current-year").textContent = new Date().getFullYear();
     </script>
+
+    <!--==============FINAL PORTFOLIO CHATBOT + ENTER KEY ✅=====================-->
+    <div id="chat-launcher" onclick="toggleChat()"><i class="bi bi-chat-dots-fill fs-3 text-white"></i></div>
+
+    <div id="chat-window">
+        <div class="chat-header">
+            <span>Portfolio Bot</span>
+            <i class="bi bi-x-lg" style="cursor:pointer" onclick="toggleChat()"></i>
+        </div>
+        <div id="chat-msgs">
+            <div class="msg msg-bot">Hi! 👋 Ask about my .NET projects, Angular apps, Azure deployments, or give feedback!</div>
+        </div>
+        <form id="chat-form" class="chat-input">
+            <input type="text" id="chat-in" placeholder="Type here..." autocomplete="off">
+            <button type="button" onclick="sendMessage()">Send</button>
+        </form>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+
+    <script>
+        window.__firebase_config = `{
+        "apiKey": "AIzaSyBnZawY3dS1V0iImyJO37Z0tMcpHLKSdiE",
+        "authDomain": "portfolio-feedback-4d9de.firebaseapp.com",
+        "projectId": "portfolio-feedback-4d9de"
+}`;
+
+        let db;
+
+        window.toggleChat = function () {
+            const win = document.getElementById('chat-window');
+            win.style.display = win.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        window.sendMessage = async function () {
+            const input = document.getElementById('chat-in');
+            const msgsDiv = document.getElementById('chat-msgs');
+            const text = input.value.trim();
+            const lowerText = text.toLowerCase();
+
+            if (!text) return;
+
+            // Show user message
+            const userMsg = document.createElement('div');
+            userMsg.className = 'msg msg-user';
+            userMsg.textContent = text;
+            msgsDiv.appendChild(userMsg);
+            input.value = '';
+            input.focus(); // Keep focus for next Enter
+            msgsDiv.scrollTop = msgsDiv.scrollHeight;
+
+            // 🔥 30 SMART RESPONSES (your existing logic - unchanged)
+            let response = '';
+            if (lowerText.includes('hi') || lowerText.includes('hello') || lowerText.includes('hey')) {
+                response = "Hey! 👋 What do you think of my work?";
+            }
+            else if (lowerText.includes('nice') || lowerText.includes('good') || lowerText.includes('beautiful')) {
+                response = "Thanks! 🚀 Which project stands out?";
+            }
+            else if (lowerText.includes('amazing') || lowerText.includes('wow') || lowerText.includes('incredible')) {
+                response = "Wow, thanks! 😍 What impressed you most?";
+            }
+            else if (lowerText.includes('love') || lowerText.includes('liked')) {
+                response = "Appreciate that! ❤️ Tell me about your favorite part!";
+            }
+            else if (lowerText.includes('cool') || lowerText.includes('awesome')) {
+                response = "Thanks! 🎉 Which section caught your eye?";
+            }
+            else if (lowerText.includes('great job') || lowerText.includes('well done')) {
+                response = "Thank you! 💪 What specifically resonated?";
+            }
+            else if (lowerText.includes('impressive') || lowerText.includes('professional')) {
+                response = "Means a lot! 👨‍💼 What felt polished?";
+            }
+            else if (lowerText.includes('clean') || lowerText.includes('simple') || lowerText.includes('minimal')) {
+                response = "Exactly my style! 🎨 Modern enterprise UX.";
+            }
+            else if (lowerText.includes('design')) {
+                response = "Design-first approach! ✨ What UI element stood out?";
+            }
+            else if (lowerText.includes('project') || lowerText.includes('portfolio') || lowerText.includes('work')) {
+                response = "Thanks! 💻 ASP.NET Core + Angular + Azure deployments.";
+            }
+            else if (lowerText.includes('bad') || lowerText.includes('poor') || lowerText.includes('ugly')) {
+                response = "Thanks for the honesty! 🤔 What would make it better?";
+            }
+            else if (lowerText.includes('slow') || lowerText.includes('laggy')) {
+                response = "Good catch! ⚡ Working on performance - what felt slow?";
+            }
+            else if (lowerText.includes('confusing') || lowerText.includes('confused')) {
+                response = "Helpful feedback! 🧠 Where did you get lost?";
+            }
+            else if (lowerText.includes('too much') || lowerText.includes('lots')) {
+                response = "Fair point! 📋 What feels overwhelming?";
+            }
+            else if (lowerText.includes('boring') || lowerText.includes('plain')) {
+                response = "Noted! 🎨 What would make it more engaging?";
+            }
+            else if (lowerText.includes('old') || lowerText.includes('outdated')) {
+                response = "Thanks for saying! 🔄 What's missing from modern trends?";
+            }
+            else if (lowerText.includes('not working') || lowerText.includes('broken')) {
+                response = "Appreciate it! 🛠️ What specifically failed?";
+            }
+            else if (lowerText.includes('ok') || lowerText.includes('fine')) {
+                response = "Cool! 😊 Any specific thoughts on projects or design?";
+            }
+            else if (lowerText.includes('interesting')) {
+                response = "Thanks! 🤔 Which part sparked your interest?";
+            }
+            else if (lowerText.includes('different') || lowerText.includes('unique')) {
+                response = "That's my goal! 🎯 What feels distinctive?";
+            }
+            else if (lowerText.includes('modern') || lowerText.includes('new')) {
+                response = "Current stack! 🚀 Curious about any tech specifically?";
+            }
+            else if (lowerText.includes('angular') || lowerText.includes('react') || lowerText.includes('vue')) {
+                response = "Angular specialist! ⚡ Built enterprise SPAs.";
+            }
+            else if (lowerText.includes('.net') || lowerText.includes('c#') || lowerText.includes('asp')) {
+                response = ".NET Core APIs + EF Core! 🛠️ Battle-tested.";
+            }
+            else if (lowerText.includes('azure') || lowerText.includes('aws')) {
+                response = "Azure DevOps + App Services! ☁️ Full cloud lifecycle.";
+            }
+            else if (lowerText.includes('database') || lowerText.includes('sql')) {
+                response = "SQL + EF Core! 📊 Optimized for enterprise scale.";
+            }
+            else if (lowerText.includes('hire') || lowerText.includes('job') || lowerText.includes('opportunities')) {
+                response = "Open to connect! 👨‍💼 LinkedIn in header.";
+            }
+            else if (lowerText.includes('resume') || lowerText.includes('cv')) {
+                response = "Updated resume available! 📄 Happy to share.";
+            }
+            else if (lowerText.includes('bye') || lowerText.includes('see you')) {
+                response = "Bye.. visit again! Stay Happy and Stay Techie!";
+            }
+            else {
+                response = "Thanks for checking out my work! 😊 Projects, design, or career questions?";
+            }
+
+            // Show bot response
+            const botMsg = document.createElement('div');
+            botMsg.className = 'msg msg-bot';
+            botMsg.textContent = response;
+            msgsDiv.appendChild(botMsg);
+            msgsDiv.scrollTop = msgsDiv.scrollHeight;
+
+            // Save to Firebase
+            try {
+                if (!db) {
+                    const firebaseApp = firebase.initializeApp(JSON.parse(__firebase_config));
+                    db = firebase.firestore();
+                }
+                await db.collection('portfolio_chats').add({
+                    user: text,
+                    bot: response,
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                });
+            } catch (error) {
+                const silentErrors = ['unavailable', 'deadline-exceeded', 'failed-precondition'];
+                if (!silentErrors.includes(error.code)) {
+                    console.error('Chat save error:', error.code, error.message);
+                }
+            }
+        }
+
+        // 🔥 ENTER KEY SUPPORT - CORRECT IMPLEMENTATION
+        document.addEventListener('DOMContentLoaded', function () {
+            const input = document.getElementById('chat-in');
+            input.addEventListener('keydown', function (event) {
+                if (event.key === 'Enter' && !event.shiftKey) {
+                    event.preventDefault();
+                    sendMessage();
+                }
+            });
+        });
+    </script>
+
 
 </body>
 </html>

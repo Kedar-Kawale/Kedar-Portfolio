@@ -1233,3 +1233,80 @@ ul li::marker {
 .contact .php-email-form button[type=submit]:hover {
   background: #15bb62;
 }
+
+/* firebase chatbot styles css section*/
+
+#chat-launcher {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: #18d26e;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+#chat-window {
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    width: 300px;
+    height: 400px;
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 10px;
+    display: none;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+.chat-header {
+    background: #18d26e;
+    padding: 10px;
+    font-weight: bold;
+}
+
+#chat-msgs {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.msg {
+    padding: 8px;
+    border-radius: 5px;
+    max-width: 80%;
+}
+
+.msg-bot {
+    background: #222;
+    align-self: flex-start;
+}
+
+.msg-user {
+    background: #18d26e;
+    color: #000;
+    align-self: flex-end;
+}
+
+.chat-input {
+    display: flex;
+    padding: 10px;
+    border-top: 1px solid #333;
+}
+
+    .chat-input input {
+        flex: 1;
+        background: #222;
+        color: #fff;
+        border: none;
+        padding: 5px;
+    }
