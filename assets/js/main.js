@@ -417,7 +417,9 @@
         }
 
     });
-    // Initialize EmailJS
+
+    /*
+    //=============OLD- Initialize EmailJS=============
     emailjs.init("ALas8v3bWz0W54D8W"); // Your actual public key from EmailJS
 
 
@@ -454,6 +456,58 @@
             console.error("Message failed to send.");                     
         })           
     });
+    */
+    
+    
+    //========================================
+    // NEW Initialize EmailJS (Updated for v4)
+    emailjs.init({
+        publicKey: "ALas8v3bWz0W54D8W",
+    });
+
+    // Contact Form Logic
+    document.addEventListener("DOMContentLoaded", () => {
+        const form = document.getElementById("contact-form");
+        const successMessage = document.querySelector(".sent-message");
+        const errorMessage = document.querySelector(".error-message");
+        const loadingMessage = document.getElementById("loadingMessage");
+        const submitBtn = document.getElementById("submit-btn");
+
+        if (form) {
+            form.addEventListener("submit", function (e) {
+                e.preventDefault();
+                if (!form.checkValidity()) {
+                    form.reportValidity();
+                    return;
+                }
+
+                // UI feedback
+                loadingMessage.style.display = "block";
+                successMessage.style.display = "none";
+                errorMessage.style.display = "none";
+                submitBtn.disabled = true;
+
+                emailjs.sendForm("contactform_smtp", "template_1p8r2kf", form)
+                    .then(() => {
+                        loadingMessage.style.display = "none";
+                        successMessage.style.display = "block";
+                        form.reset();
+                        setTimeout(() => {
+                            successMessage.style.display = "none";
+                        }, 4000);
+                    })
+                    .catch((error) => {
+                        loadingMessage.style.display = "none";
+                        errorMessage.style.display = "block";
+                        console.error("FAILED...", error);
+                    })
+                    .finally(() => {
+                        submitBtn.disabled = false;
+                    });
+            });
+        }
+    });
+
 
 })();
 
