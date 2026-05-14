@@ -40,9 +40,10 @@
               "RelativeDocumentMoniker": "assets\\js\\main.js",
               "ToolTip": "D:\\KedarPortfolioDone\\assets\\js\\main.js",
               "RelativeToolTip": "assets\\js\\main.js",
-              "ViewState": "AgIAAOQBAAAAAAAAAAAgwOoBAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAANgBAAAAAAAAAAAgwOoBAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2026-01-11T12:06:20.863Z"
+              "WhenOpened": "2026-01-11T12:06:20.863Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -52,9 +53,10 @@
               "RelativeDocumentMoniker": "assets\\css\\style.css",
               "ToolTip": "D:\\KedarPortfolioDone\\assets\\css\\style.css",
               "RelativeToolTip": "assets\\css\\style.css",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEYAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAP4BAAAAAAAAAAAAAEYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2026-01-11T12:06:15.956Z"
+              "WhenOpened": "2026-01-11T12:06:15.956Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -64,7 +66,7 @@
               "RelativeDocumentMoniker": "index.html",
               "ToolTip": "D:\\KedarPortfolioDone\\index.html",
               "RelativeToolTip": "index.html",
-              "ViewState": "AgIAAC0AAAAAAAAAAAAAAD8AAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAAAoCAAAAAAAAAAAgwB4CAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
               "WhenOpened": "2025-12-19T06:21:26.254Z",
               "EditorCaption": ""
