@@ -206,6 +206,110 @@ h6 {
   }
 }
 
+/*==========changes on 13 June =======*/
+/* Container remains the same */
+.name-container {
+    position: relative;
+    display: inline-block;
+    cursor: default; /* Forces the mouse cursor to stay a normal arrow, signaling it cannot be clicked */
+}
+
+/* THE SHARED POP-UP ENGINE */
+@keyframes popUpElement {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* ========================================================
+   THE SECRET: ONLY ANIMATE WHEN THE NAVBAR HOME IS ACTIVE
+   ======================================================== */
+
+/* 1. MAIN CLOUD BODY */
+.thought-cloud {
+    position: absolute;
+    top: -65px;
+    left: 90%;
+    background: #ffffff;
+    color: #333333;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 12px 18px;
+    border-radius: 30px;
+    white-space: nowrap;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    /* DEFAULT STATE: Hidden completely on other pages */
+    opacity: 0;
+    transform: scale(0);
+    transform-origin: bottom left;
+}
+/* Trigger animation only when Home link has .active class */
+#navbar a[href="#header"].active ~ .name-container .thought-cloud,
+#header:not(.header-top) .thought-cloud {
+    animation: popUpElement 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    animation-delay: 1.6s;
+}
+
+
+/* 2. SECOND BALL */
+.thought-cloud::before {
+    content: '';
+    position: absolute;
+    bottom: -16px;
+    left: 5px;
+    width: 12px;
+    height: 12px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: scale(0);
+}
+
+#navbar a[href="#header"].active ~ .name-container .thought-cloud::before,
+#header:not(.header-top) .thought-cloud::before {
+    animation: popUpElement 0.5s ease-out forwards;
+    animation-delay: 0.8s;
+}
+
+
+/* 3. FIRST BALL */
+.thought-cloud::after {
+    content: '';
+    position: absolute;
+    bottom: -28px;
+    left: -5px;
+    width: 7px;
+    height: 7px;
+    background: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: scale(0);
+}
+
+#navbar a[href="#header"].active ~ .name-container .thought-cloud::after,
+#header:not(.header-top) .thought-cloud::after {
+    animation: popUpElement 0.5s ease-out forwards;
+    animation-delay: 0s;
+}
+
+body {
+    overscroll-behavior-x: none;
+}
+
+
+/*=========changes on 13 June ========*/
+
+
+    
+
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/

@@ -1,9 +1,7 @@
 (function () {
     "use strict";
 
-    /**
-     * Easy selector helper function
-     */
+     // Easy selector helper function
     const select = (el, all = false) => {
         el = el.trim()
         if (all) {
@@ -12,10 +10,8 @@
             return document.querySelector(el)
         }
     }
-
-    /**
-     * Easy event listener function
-     */
+    
+     //Easy event listener function
     const on = (type, el, listener, all = false) => {
         let selectEl = select(el, all)
         if (selectEl) {
@@ -27,9 +23,9 @@
         }
     }
 
-    /**
-     * Scrolls to an element with header offset
-     */
+    
+     // Scrolls to an element with header offset
+    
     const scrollto = (el) => {
         window.scrollTo({
             top: 0,
@@ -37,18 +33,18 @@
         })
     }
 
-    /**
-     * Mobile nav toggle
-     */
+    
+     // Mobile nav toggle
+     
     on('click', '.mobile-nav-toggle', function (e) {
         select('#navbar').classList.toggle('navbar-mobile')
         this.classList.toggle('bi-list')
         this.classList.toggle('bi-x')
     })
 
-    /**
-     * Scrool with ofset on links with a class name .scrollto
-     */
+    
+     // Scroll with offset on links with a class name .scrollto
+     
     on('click', '#navbar .nav-link', function (e) {
         let section = select(this.hash)
         if (section) {
@@ -98,10 +94,10 @@
             scrollto(this.hash)
         }
     }, true)
-
-    /**
-     * Activate/show sections on load with hash links
-     */
+    
+    
+     // Activate/show sections on load with hash links
+     
     window.addEventListener('load', () => {
         if (window.location.hash) {
             let initial_nav = select(window.location.hash)
@@ -129,9 +125,71 @@
         }
     });
 
-    /**
-     * Skills animation
-     */
+    //========Touchpad Horizontal Slide/Swipe Navigation=======Start==========
+    const portfolioTabs = ["#header", "#about", "#resume", "#services", "#portfolio", "#interests", "#contact"];
+    let isTrackpadThrottled = false;
+
+    window.addEventListener("wheel", (event) => {
+
+        // 1. ULTIMATE FAST-SWIPE BLOCK: If there is ANY horizontal movement, kill browser native back/forward immediately
+        if (Math.abs(event.deltaX) > 0) {
+            event.preventDefault();
+        }
+
+        // Threshold check for sensitivity
+        if (Math.abs(event.deltaX) < 35 || isTrackpadThrottled) return;
+
+        // Find all navlinks in your menu
+        let navlinks = select('#navbar .nav-link', true);
+        if (!navlinks || navlinks.length === 0) return;
+
+        // Identify the index of the currently active tab by checking .active class
+        let currentTabIndex = portfolioTabs.findIndex(hash => {
+            let matchingLink = navlinks.find(link => link.hash === hash || link.getAttribute('href') === hash);
+            return matchingLink && matchingLink.classList.contains("active");
+        });
+
+        // Fallback safely to Home if active index tracking drops
+        if (currentTabIndex === -1) currentTabIndex = 0;
+
+        let targetTabIndex = currentTabIndex;
+
+        // EXACT DIRECTION LOGIC AS REQUESTED:
+        if (event.deltaX < 0) {
+            // Two fingers sliding from LEFT TO RIGHT (event.deltaX is negative) -> Go to NEXT tab
+            if (currentTabIndex < portfolioTabs.length - 1) {
+                targetTabIndex = currentTabIndex + 1;
+            }
+        } else {
+            // Two fingers sliding from RIGHT TO LEFT (event.deltaX is positive) -> Go to PREVIOUS tab
+            if (currentTabIndex > 0) {
+                targetTabIndex = currentTabIndex - 1;
+            }
+        }
+
+        // Trigger safe programmatic navigation if tab changed
+        if (targetTabIndex !== currentTabIndex) {
+            let targetHash = portfolioTabs[targetTabIndex];
+            let targetLinkElement = navlinks.find(link => link.hash === targetHash || link.getAttribute('href') === targetHash);
+
+            if (targetLinkElement) {
+                isTrackpadThrottled = true;
+
+                // Dispatches standard click execution sequence
+                targetLinkElement.click();
+
+                // Snappy 700ms cooldown delay
+                setTimeout(() => {
+                    isTrackpadThrottled = false;
+                }, 700);
+            }
+        }
+    }, { passive: true });
+    //========touchpad functionality for long L&R swipes========End===========
+
+    
+     // Skills animation
+     
     let skilsContent = select('.skills-content');
     if (skilsContent) {
         new Waypoint({
@@ -146,9 +204,9 @@
         })
     }
 
-    /**
-     * Testimonials slider
-     */
+    
+     //Testimonials slider
+     
     new Swiper('.testimonials-slider', {
         speed: 600,
         loop: true,
@@ -175,9 +233,9 @@
         }
     });
 
-    /**
-     * Portfolio isotope and filter
-     */
+    
+     // Portfolio isotope and filter
+     
     window.addEventListener('load', () => {
         let portfolioContainer = select('.portfolio-container');
         if (portfolioContainer) {
@@ -202,25 +260,25 @@
         }
     });
 
-    /**
-     * Initiate portfolio lightbox 
-     */
+    
+     // Initiate portfolio lightbox 
+    
     const portfolioLightbox = GLightbox({
         selector: '.portfolio-lightbox'
     });
 
-    /**
-     * Initiate portfolio details lightbox 
-     */
+    
+     // Initiate portfolio details lightbox 
+     
     const portfolioDetailsLightbox = GLightbox({
         selector: '.portfolio-details-lightbox',
         width: '90%',
         height: '90vh'
     });
 
-    /**
-     * Portfolio details slider
-     */
+    
+     // Portfolio details slider
+     
     new Swiper('.portfolio-details-slider', {
         speed: 400,
         loop: true,
@@ -235,14 +293,14 @@
         }
     });
 
-    /**
-     * Initiate Pure Counter 
-     */
+    
+     // Initiate Pure Counter 
+     
     new PureCounter();
 
-    /*
+    
     // code for the Interests section
-    */
+    
     const interestsSection = select('#interests');
     const interestItems = select('.interest-item', true);
     const interestDetails = select('.interest-details', true);
@@ -365,9 +423,9 @@
         }
     });
     
-    /*
-      <======Modal Logic======>
-*/
+    
+      //<======Modal Logic=======================================================>
+
     document.addEventListener('DOMContentLoaded', () => {
         //========for Music modal========== 
         const musicModal = document.getElementById('music-modal');
@@ -507,7 +565,5 @@
             });
         }
     });
-
-
 })();
 
